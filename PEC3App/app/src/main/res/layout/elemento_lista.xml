@@ -1,6 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="7dp">
+
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_weight="1"
+        android:contentDescription="fotografía"
+        android:src="@drawable/baseline_account_balance_white_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/foto2"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/foto2"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_weight="1"
+        android:contentDescription="fotografía"
+        android:src="@drawable/baseline_account_balance_white_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/foto3"
+
+        app:layout_constraintStart_toEndOf="@+id/foto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/foto3"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_weight="1"
+        android:contentDescription="fotografía"
+        android:src="@drawable/baseline_account_balance_white_24dp"
+        app:layout_constraintEnd_toStartOf="@+id/foto4"
+
+        app:layout_constraintStart_toEndOf="@+id/foto2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/foto4"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_weight="1"
+        android:contentDescription="fotografía"
+        android:src="@drawable/baseline_account_balance_white_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toEndOf="@+id/foto3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombres del lugar"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
