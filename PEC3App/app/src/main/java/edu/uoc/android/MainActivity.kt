@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         rellay_museums.setOnClickListener{
-            val intent =  Intent(this,Museums::class.java)
+            val intent =  Intent(this,MuseumsActivity::class.java)
             startActivity(intent)
         }
 

@@ -13,7 +13,7 @@
         tools:ignore="LockedOrientationActivity">
 
 
-        <activity android:name=".Museums"
+        <activity android:name=".MuseumsActivity"
             android:screenOrientation="portrait">
 
         </activity>
