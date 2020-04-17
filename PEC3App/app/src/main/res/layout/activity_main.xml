@@ -208,7 +208,7 @@
                             android:adjustViewBounds="true"
                             android:padding="8dp"
                             android:scaleType="centerInside"
-                            android:src="@drawable/baseline_people_white_24dp"
+                            android:src="@drawable/baseline_settings_white_24dp"
                             />
 
                         <TextView
@@ -246,7 +246,7 @@
                             android:adjustViewBounds="true"
                             android:padding="8dp"
                             android:scaleType="centerInside"
-                            android:src="@drawable/baseline_live_help_white_24dp"
+                            android:src="@drawable/baseline_help_white_24dp"
                             />
 
                         <TextView

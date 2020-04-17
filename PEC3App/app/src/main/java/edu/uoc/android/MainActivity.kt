@@ -13,14 +13,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         rellay_maps.setOnClickListener{
-            val intent =  Intent(this,MainActivity::class.java)
+            val intent =  Intent(this,MapsActivity::class.java)
             startActivity(intent)
         }
         rellay_museums.setOnClickListener{
             val intent =  Intent(this,MuseumsActivity::class.java)
             startActivity(intent)
         }
-
+        rellay_quizzes.setOnClickListener {
+            val intent =  Intent(this,QuizzesActivity::class.java)
+            startActivity(intent)
+        }
+        rellay_settings.setOnClickListener{
+            val intent =  Intent(this,SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

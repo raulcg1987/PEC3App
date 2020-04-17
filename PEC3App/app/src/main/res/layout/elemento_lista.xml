@@ -6,54 +6,52 @@
 
     <ImageView
         android:id="@+id/foto"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:layout_weight="1"
         android:contentDescription="fotografía"
         android:src="@drawable/baseline_account_balance_white_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/foto2"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/foto2"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/listPreferredItemHeight"
-        android:layout_weight="1"
-        android:contentDescription="fotografía"
-        android:src="@drawable/baseline_account_balance_white_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/foto3"
+<!--    <ImageView-->
+<!--        android:id="@+id/foto2"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="?android:attr/listPreferredItemHeight"-->
+<!--        android:layout_weight="1"-->
+<!--        android:contentDescription="fotografía"-->
+<!--        android:src="@drawable/baseline_account_balance_white_24dp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/foto3"-->
 
-        app:layout_constraintStart_toEndOf="@+id/foto"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--        app:layout_constraintStart_toEndOf="@+id/foto"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageView
-        android:id="@+id/foto3"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/listPreferredItemHeight"
-        android:layout_weight="1"
-        android:contentDescription="fotografía"
-        android:src="@drawable/baseline_account_balance_white_24dp"
-        app:layout_constraintEnd_toStartOf="@+id/foto4"
+<!--    <ImageView-->
+<!--        android:id="@+id/foto3"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="?android:attr/listPreferredItemHeight"-->
+<!--        android:layout_weight="1"-->
+<!--        android:contentDescription="fotografía"-->
+<!--        android:src="@drawable/baseline_account_balance_white_24dp"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/foto4"-->
 
-        app:layout_constraintStart_toEndOf="@+id/foto2"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--        app:layout_constraintStart_toEndOf="@+id/foto2"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageView
-        android:id="@+id/foto4"
-        android:layout_width="0dp"
-        android:layout_height="?android:attr/listPreferredItemHeight"
-        android:layout_weight="1"
-        android:contentDescription="fotografía"
-        android:src="@drawable/baseline_account_balance_white_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+<!--    <ImageView-->
+<!--        android:id="@+id/foto4"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="?android:attr/listPreferredItemHeight"-->
+<!--        android:layout_weight="1"-->
+<!--        android:contentDescription="fotografía"-->
+<!--        android:src="@drawable/baseline_account_balance_white_24dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
 
-        app:layout_constraintStart_toEndOf="@+id/foto3"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--        app:layout_constraintStart_toEndOf="@+id/foto3"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
-        android:id="@+id/nombre"
+        android:id="@+id/museo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Nombres del lugar"

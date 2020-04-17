@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "369345539433",
+    "firebase_url": "https://pec3uoc-fb40c.firebaseio.com",
+    "project_id": "pec3uoc-fb40c",
+    "storage_bucket": "pec3uoc-fb40c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369345539433:android:f83b4c2ad4846c172821f8",
+        "android_client_info": {
+          "package_name": "edu.uoc.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369345539433-5km778rnlvfguob666m790qgkrru89vn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1wxbwiFpn6kUIquCjoOMJFiEak7PJZF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369345539433-5km778rnlvfguob666m790qgkrru89vn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
