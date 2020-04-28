@@ -7,35 +7,24 @@
     tools:context=".SettingsActivity">
 
     <Button
-        android:id="@+id/save"
-        android:layout_width="204dp"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="@+id/take_photo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/take_photo"
-        app:layout_constraintTop_toTopOf="@+id/take_photo"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/take_photo"
         android:layout_width="204dp"
         android:layout_height="wrap_content"
         android:text="Take Photo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/save"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"
+        android:layout_marginTop="400dp"
         android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/save"
+        android:text="No hay ninguna imagen guardada todavía."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"

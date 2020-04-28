@@ -1,27 +1,22 @@
 package edu.uoc.android
 
 import android.Manifest
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.media.Image
-import android.net.Uri
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
+
 import kotlinx.android.synthetic.main.activity_settings.*
-import kotlinx.android.synthetic.main.elemento_quizzes.*
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
+import java.io.*
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -34,6 +29,26 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        //Check if a photo exists
+        val filepath = "UOCImageApp"
+        var fileName = "imageapp.jpg"
+        var baseDir: Array<out File>? = getExternalFilesDirs(null)
+        var sBaseDir = baseDir?.get(0)?.path?:""
+        val myExternalFile = File(sBaseDir,filepath
+                + File.separator + fileName
+        )
+        //If exist load
+        if (myExternalFile != null)  {
+            val bit = BitmapFactory.decodeFile(myExternalFile.toString())
+
+            imageView?.setImageBitmap(bit)
+            if (bit != null){
+                textView.text = ""
+            }
+
+        }
+
         take_photo.setOnClickListener {
             checkExternalStoragePermission()
 
@@ -61,10 +76,20 @@ class SettingsActivity : AppCompatActivity() {
             try {
                 val imageBitmap = data!!.extras?.get("data") as Bitmap
                 imageView.setImageBitmap(imageBitmap)
+                textView.text = ""
 
-
+                val filepath = "UOCImageApp"
                 var fileName = "imageapp.jpg"
-                var myExternalFile:File = File(getExternalFilesDir(filepath),fileName)
+
+                var baseDir: Array<out File>? = getExternalFilesDirs(null)
+                var sBaseDir = baseDir?.get(0)?.path?:""
+
+                val storageDir = sBaseDir + File.separator + filepath
+                val storageDirFile = File(storageDir.toString())
+                //Create storage Directory in case it doesnt exist
+                storageDirFile.mkdirs()
+                //Create file
+                val myExternalFile = File(sBaseDir,filepath + File.separator + fileName)
                 try {
                     val stream = ByteArrayOutputStream()
                     imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
@@ -75,7 +100,7 @@ class SettingsActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
 
-                Toast.makeText(applicationContext,"data save in" + myExternalFile.path, Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"data saved in" + myExternalFile.path, Toast.LENGTH_SHORT).show()
             } catch (ex: Error) {}
 
         }
@@ -139,19 +164,6 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    @Throws(IOException::class)
-    private fun createImageFile(): File {
-        // Create an image file name
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(
-            "imageapp", /* prefix */
-            ".jpg", /* suffix */
-            storageDir /* directory */
-        ).apply {
-            // Save a file: path for use with ACTION_VIEW intents
-            currentPhotoPath = absolutePath
-        }
-    }
 
 
 
