@@ -113,6 +113,7 @@ class SettingsActivity : AppCompatActivity() {
 
 
     private fun checkExternalStoragePermission() {
+
         //Check permissions, if don't have, ask for permission
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -152,6 +153,7 @@ class SettingsActivity : AppCompatActivity() {
                 )
             }
         }
+
         //If permission granted, continue with photo
         if ((ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE
             )  == PackageManager.PERMISSION_GRANTED)
@@ -162,9 +164,27 @@ class SettingsActivity : AppCompatActivity() {
         {
             dispatchTakePictureIntent()
         }
+
     }
 
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
 
+        //If permission granted, continue with photo
+        if ((ContextCompat.checkSelfPermission(this,Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )  == PackageManager.PERMISSION_GRANTED)
+                &&
+            (ContextCompat.checkSelfPermission(this,Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED
+                ))
+        {
+            dispatchTakePictureIntent()
+        }
+
+    }
 
 }

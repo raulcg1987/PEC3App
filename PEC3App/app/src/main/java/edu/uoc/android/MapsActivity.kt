@@ -36,12 +36,37 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    public var elementos: List<Element> = ArrayList()
+    var elementos: List<Element> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
 
+        //Check for permissions
+        var locationRequestCode = 1000;
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Request for permission
+            Log.d("Permisos","Permisos no están dados")
+            //request Permissions
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    android.Manifest.permission.ACCESS_FINE_LOCATION,
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
+                locationRequestCode
+            )
+        } else
+        {
+            // Permission has already been granted
+            mainfun()
+        }
+
+    }
+
+
+    fun mainfun(){
         //Instancia cliente de proveedor de ubicación combinada
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -80,8 +105,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as? SupportMapFragment
         mapFragment?.getMapAsync(this)
-
-
     }
 
     /**
@@ -117,25 +140,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.baseline_place_white_24dp))
         }
 
-        var locationRequestCode = 1000;
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-            && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // reuqest for permission
-            Log.d("Permisos","Permisos no están dados")
-            //request Permissions
-            ActivityCompat.requestPermissions(
-                this,
-                arrayOf(
-                    android.Manifest.permission.ACCESS_FINE_LOCATION,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION
-                ),
-                locationRequestCode
-            )
-
-
-
-        } else {
-            // already permission granted
             Log.d("Permisos","Permisos dados")
             fusedLocationClient.lastLocation
                 .addOnSuccessListener { location : Location? ->
@@ -143,7 +147,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(location.getLatitude(), location.getLongitude())))
                     }
                 }
-        }
+
     }
 
     override fun onRequestPermissionsResult(
@@ -159,11 +163,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
                 if (grantResults.size > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED
                 ) {
-                    fusedLocationClient.getLastLocation().addOnSuccessListener { location ->
-                        if (location != null) {
-                            mMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(location.getLatitude(), location.getLongitude())))
-                        }
-                    }
+                    // Permission granted
+                    mainfun()
                 } else {
                     Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
                 }
